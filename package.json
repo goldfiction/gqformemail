@@ -1,0 +1,16 @@
+{
+  "name": "gqformemail",
+  "version": "0.0.1",
+  "main":"main.js",
+  "dependencies":{
+    "gqemail":"",
+    "express":"3.4.0",
+    "lodash":"",
+    "coffee-script":"1.0.0",
+    "express-basic-auth":"",
+    "express-session":"",
+    "gqcoffee":"1.0.7",
+    "gqdoq":"",
+    "node-grequire":""
+  }
+}
