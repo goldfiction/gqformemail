@@ -2,6 +2,7 @@
   "name": "gqformemail",
   "version": "0.0.1",
   "main":"main.js",
+  "private":false,
   "dependencies":{
     "gqemail":"",
     "express":"3.4.0",
