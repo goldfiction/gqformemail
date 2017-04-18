@@ -2,6 +2,9 @@
   "name": "gqformemail",
   "version": "0.0.1",
   "main":"main.js",
+  "description":"a small module that does form email. It can email you the contents of form-requests",
+  "repository":"git@github.com:goldfiction/gqformemail.git",
+  "license":"MIT",
   "private":false,
   "dependencies":{
     "gqemail":"",

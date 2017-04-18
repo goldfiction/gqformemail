@@ -17,7 +17,10 @@ exports.echo= (req,res)->
     query=req.query
   else
     query=req.body
-  queryStr=JSON.stringify(query,null,2)
+  queryStr=""
+  queryStr+="Method: "+req.method
+  queryStr+="\nRequest Body: \n"+JSON.stringify query,null,2
+  queryStr+="\nHeaders: \n"+JSON.stringify req.headers,null,2
   console.log queryStr
   if config.server.sendreport
     gqemail.emailit {
