@@ -12,7 +12,7 @@ require "node-grequire"
 
 exports.echo= (req,res)->
   console.log "method:"+req.method
-  query={};
+  query={}
   if req.method.toLowerCase=="get"
     query=req.query
   else
@@ -23,13 +23,13 @@ exports.echo= (req,res)->
   queryStr+="\nHeaders: \n"+JSON.stringify req.headers,null,2
   console.log queryStr
   if config.server.sendreport
-    gqemail.emailit {
+    gqemail.emailit
       to:config.server.sendreportemail
       text:queryStr
-    },(e)->
-      if(e)
+    ,(e)->
+      if e
         console.log e
-  res.send(200,queryStr)
+  res.send 200,queryStr
 
 runServer = (o, cb) ->
   try
@@ -48,7 +48,7 @@ runServer = (o, cb) ->
 
     app.all "/", exports.echo
 
-    o.message=o.message or ""
+    o.message = o.message or ""
     try
       o.message += "\n"+fs.readFileSync(config.server.motd).toString()+"\n"
     catch e
