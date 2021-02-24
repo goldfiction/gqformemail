@@ -6,23 +6,29 @@ path = require "path"
 moment = require "moment"
 basicAuth = require "express-basic-auth"
 gqemail = require "gqemail"
+methodOverride=require "method-override"
+bodyParser=require "body-parser"
 app = express()
 gqconfig=require("gqconfig")()
 require "node-grequire"
 
 exports.echo= (req,res)->
-  console.log "method:"+req.method
-  query={}
-  if req.method.toLowerCase=="get"
+  #console.log "method:"+req.method
+  if req.method.toLowerCase()=="get"
     query=req.query
   else
     query=req.body
   queryStr=""
   queryStr+="Method: "+req.method
+  queryStr+="\nUrl: \n"+req.url
   queryStr+="\nRequest Body: \n"+JSON.stringify query,null,2
   queryStr+="\nHeaders: \n"+JSON.stringify req.headers,null,2
   console.log queryStr
   if config.server.sendreport
+    try
+      gqemail.setServer config.gmail
+    catch e
+      
     gqemail.emailit
       to:config.server.sendreportemail
       text:queryStr
@@ -42,8 +48,13 @@ runServer = (o, cb) ->
 
     if config.basicauth.authenticate
       app.use basicAuth(config.basicauth)
-    app.use express.bodyParser()
-    app.use express.methodOverride()
+    # app.use express.urlencoded()
+    # app.use express.json()
+    # app.use bodyParser()
+    app.use bodyParser.urlencoded 
+      extended: true
+    app.use bodyParser.json()
+    app.use methodOverride()
     app.use express.cookieParser()
 
     app.all "/", exports.echo
