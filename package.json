@@ -1,6 +1,6 @@
 {
   "name": "gqformemail",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "main.js",
   "description": "a small module that does form email. It can email you the contents of form-requests",
   "repository": "git@github.com:goldfiction/gqformemail.git",
@@ -15,7 +15,7 @@
     "gqcoffee": "1.0.7",
     "gqconfig": "^1.0.4",
     "gqdoq": "^1.1.1",
-    "gqemail2": "^2.0.2",
+    "gqemail2": "^2.0.3",
     "lodash": "^4.17.21",
     "method-override": "^3.0.0",
     "moment": "^2.30.1",
