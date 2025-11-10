@@ -61,3 +61,5 @@ typings/
 
 .idea/
 config.ini
+user.js
+package-lock.json

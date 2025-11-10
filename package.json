@@ -1,26 +1,31 @@
 {
   "name": "gqformemail",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "main.js",
   "description": "a small module that does form email. It can email you the contents of form-requests",
   "repository": "git@github.com:goldfiction/gqformemail.git",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "body-parser": "",
-    "coffee-script": "1.0.0",
+    "body-parser": "^1.19.0",
+    "coffee-script": "^1.0.0",
     "express": "3.11.0",
-    "express-basic-auth": "",
-    "express-session": "",
+    "express-basic-auth": "^1.2.0",
+    "express-session": "^1.17.1",
     "gqcoffee": "1.0.7",
     "gqconfig": "^1.0.4",
-    "gqdoq": "",
-    "gqemail": "^1.0.10",
-    "lodash": "",
-    "method-override": "",
+    "gqdoq": "^1.1.1",
+    "gqemail2": "^2.0.2",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "moment": "^2.30.1",
     "node-grequire": "^0.1.2"
   },
-  "versionHistory":{
-    "0.0.4":"fixed alert warning for deprecated methods; added curl script for testing get and post commands"
+  "scripts": {
+    "start": "node main.js",
+    "inst": "npm install --no-bin-links --no-optional --omit=optional --ignore-scripts"
+  },
+  "versionHistory": {
+    "0.0.4": "fixed alert warning for deprecated methods; added curl script for testing get and post commands"
   }
 }

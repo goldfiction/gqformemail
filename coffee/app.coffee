@@ -5,12 +5,13 @@ https = require "https"
 path = require "path"
 moment = require "moment"
 basicAuth = require "express-basic-auth"
-gqemail = require "gqemail"
+#gqemail = require "gqemail"
 methodOverride=require "method-override"
 bodyParser=require "body-parser"
 app = express()
 gqconfig=require("gqconfig")()
 require "node-grequire"
+gqemail=require "gqemail2"
 
 exports.echo= (req,res)->
   #console.log "method:"+req.method
@@ -26,10 +27,10 @@ exports.echo= (req,res)->
   console.log queryStr
   if config.server.sendreport
     try
-      gqemail.setServer config.gmail
+      gqemail._setServer config.gmail
     catch e
       
-    gqemail.emailit
+    gqemail._emailit
       to:config.server.sendreportemail
       text:queryStr
     ,(e)->
